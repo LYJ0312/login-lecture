@@ -1,16 +1,23 @@
 "use strict";
 
-class UserStorage{
-    // 임시로 데이터 넣어놓음
-    // 정적변수(static)로 만들어 다른 클래스에서 접근 가능하게
-    // 외부에서 못받게 #을 붙여줌. 데이터 은닉화
+// users.json에서 데이터 받아와야 함
+const fs = require("fs");
 
-    // 검증용도로 미리 저장해놓은 정보, 아래 save로 따로 추가하는 정보 모을 예정
-    static #users = {
-        id: ["김이박", "이찬수", "최형실"],
-        password: ["1111", "2222", "3333"],
-        name: ["김김김", "이이이", "박박박"],
-    };
+class UserStorage{
+    // 은닉화 한 애들은 클래스 상단에 넣어줘야 깔끔
+    // 위 getIserInfo 함수 안에 들어가도 되는 내용들이지만
+    // 가독성을 위해서 #getUserInfo를 만들어서 안에 넣어줌
+    static #getUserInfo(){            
+        const users = JSON.parse(data);
+        const idx = users.id.indexOf(id); // 위에 저장한 users
+        const userKeys = Object.keys(users); // 그 users 받아온거의 key값만
+        const userInfo = userKeys.reduce((newUser, info)=>{
+            newUser[info] = users[info][idx];
+            return newUser;
+        }, {});
+
+        return userInfo;
+    }
 
     // 데이터 은닉화 했으니까, 불러오기 위해 get설정
     // 변수 몇 개를 요구할지 모르니 ...변수명 으로 설정
@@ -25,18 +32,15 @@ class UserStorage{
         return newUsers;
     }
     static getUserInfo(id){
-        const users = this.#users;
-        const idx = users.id.indexOf(id); // 위에 저장한 users
-        const userKeys = Object.keys(users); // 그 users 받아온거의 key값만
-        const userInfo = userKeys.reduce((newUser, info)=>{
-            newUser[info] = users[info][idx];
-            return newUser;
-        }, {});
-        return userInfo;
+        return fs.readFile("./src/database/users.json")
+        .then((data) =>{ // 위 로직 성공시 실행 
+            return this.#getUserInfo(data, id); //은닉화 된 메서드 호출
+        })
+        .catch(console.error); // 위 로직 실패시 실행
     }
 
     static save(userInfo){
-        const users = this.#users;
+        // const users = this.#users;
         users.id.push(userInfo.id);
         users.name.push(userInfo.name);
         users.password.push(userInfo.password);

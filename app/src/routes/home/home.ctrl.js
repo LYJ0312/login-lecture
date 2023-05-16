@@ -19,9 +19,12 @@ const output = {
 // body보려면 app.js에서 모듈 설치해야 함
 // 들어온 데이터가 저장되어 있는것과 일치한지 아닌지 확인
 const process = {
-    login: (req, res) =>{
+    // 함수 앞에서 async 걸어줘야 비동기식으로 바껴서 await 사용 가능
+    login: async(req, res) =>{
         const user = new User(req.body);
-        const response = user.login();
+        // Users.js에서 login 함수를 await걸어서 여기도 걸어줘야 함
+        // 데이터 다 읽히고 작동하는 듯
+        const response = await user.login();
 
         return res.json(response);
     },

@@ -7,9 +7,11 @@ class User {
         this.body = body;
     }
 
-    login(){
+    // 로그인 함수에서 await하기위해 비동기 형식으로 바꿈 > async 붙여줌
+    async login(){
         const client = this.body
-        const {id, password } = UserStorage.getUserInfo(client.id);
+        // Promise 반환하는 애한테만 await 사용, file system에서 사용할 때 가독성이 좋음
+        const {id, password} = await UserStorage.getUserInfo(client.id);
         
         if(id){
             if(id === client.id && password === client.password){
