@@ -10,7 +10,6 @@ const express = require('express');
 // 바디부분 내용을 보기위해 필요
 // const bodyParser = require("body-parser");
 const app = express();
-
 const PORT = 3000;
 // 라우팅
 const home = require("./src/routes/home");
@@ -32,15 +31,13 @@ app.use("/", home); // use -> 미들 웨어를 등록해주는 메소드
 module.exports = app;
 
 // 위에서 views로 지정해줘서 하위 폴더만 적어주면 됨
-app.get('/', (req, res)=>{
-    res.render('home/index');
-});
+// app.get('/', (req, res)=>{
+//     res.render('home/index');
+// });
 
-app.get('/login', (req, res)=>{
-    res.render('home/login');
-    // res.sendfile('index.html');
-});
-
-// module.exports = app;
+// app.get('/login', (req, res)=>{
+//     res.render('home/login');
+//     // res.sendfile('index.html');
+// });
 
 // package.json

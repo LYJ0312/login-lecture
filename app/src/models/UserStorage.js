@@ -24,11 +24,13 @@ class UserStorage{
     }
     static getUserInfo(id){
         const users = this.#users;
-        const idx = users.id.indexOf(id);
-        const userInfo = Object.keys(users).reduce((newUser, info)=>{
+        const idx = users.id.indexOf(id); // 위에 저장한 users
+        const userKeys = Object.keys(users); // 그 users 받아온거의 key값만
+        const userInfo = userKeys.reduce((newUser, info)=>{
             newUser[info] = users[info][idk];
             return newUser;
         }, {});
+        return userInfo;
     }
 }
 
