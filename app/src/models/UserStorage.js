@@ -4,6 +4,8 @@ class UserStorage{
     // 임시로 데이터 넣어놓음
     // 정적변수(static)로 만들어 다른 클래스에서 접근 가능하게
     // 외부에서 못받게 #을 붙여줌. 데이터 은닉화
+
+    // 검증용도로 미리 저장해놓은 정보, 아래 save로 따로 추가하는 정보 모을 예정
     static #users = {
         id: ["김이박", "이찬수", "최형실"],
         password: ["1111", "2222", "3333"],
@@ -32,6 +34,15 @@ class UserStorage{
         }, {});
         return userInfo;
     }
+
+    static save(userInfo){
+        const users = this.#users;
+        users.id.push(userInfo.id);
+        users.name.push(userInfo.name);
+        users.password.push(userInfo.password);
+        return {success: true};
+    }
 }
+
 
 module.exports = UserStorage;
