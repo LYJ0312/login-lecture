@@ -1,15 +1,14 @@
 "use strict";
 
-const UserStorage = require("../../models/UserStorage");
-
+const User = require("../../models/User");
 
 const output = {
     home: (req, res)=>{
-        res.render('./home/index');
+        res.render('home/index');
     },
     
     login: (req, res)=>{
-        res.render('./home/login');
+        res.render('home/login');
     },
 };
 
@@ -18,24 +17,9 @@ const output = {
 // 들어온 데이터가 저장되어 있는것과 일치한지 아닌지 확인
 const process = {
     login: (req, res) =>{
-        const id = req.body.id,
-        password = req.body.password;
-        // const userStorage = new UserStorage();
+        const user = new User(req.body);
+        const response = user.login();
 
-        // UserStorage에서 static으로 해놔서 접근 가능함.
-        console.log(UserStorage.getUsers("id", "password", "name"));
-
-        const response = {};
-        // if(users.id.includes(id)){
-        //     const idx = users.id.indexOf(id);
-        //     if(users.password[idx] === password){
-        //         response.success = true;
-        //         return res.json(response);
-        //     }
-        // }
-
-        response.success = false;
-        response.msg = "로그인에 실패하셨습니다.";
         return res.json(response);
     },
 };
