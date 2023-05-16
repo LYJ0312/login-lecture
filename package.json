@@ -6,8 +6,9 @@
     "login-test": "bin/www.js"
   },
   "dependencies": {
+    "body-parser": "^1.20.2",
     "ejs": "^3.1.5",
-    "express":"^4.17.1"
+    "express": "^4.17.1"
   },
   "scripts": {
     "start": "nodemon ./bin/www.js",

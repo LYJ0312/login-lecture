@@ -22,5 +22,14 @@ function login(){
         body: JSON.stringify(req),
     })
     .then((res)=> res.json())
-    .then(console.log); //보낸 데이터 읽기
+    .then((res)=>{
+        if(res.success){
+            location.href = "/"; // 로그인 성공시 이동할 경로
+        } else{
+            alert(res.msg) // 로그인 실패시 ctrl에 있는 실패 메시지 가져옴
+        }
+    })
+    .catch((err) => { // 에러 발생시 콘솔에 찍음
+        console.error(new Error("로그인 중 에러 발생"));
+    });
 }
