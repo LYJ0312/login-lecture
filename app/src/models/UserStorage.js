@@ -27,7 +27,7 @@ class UserStorage{
         const idx = users.id.indexOf(id); // 위에 저장한 users
         const userKeys = Object.keys(users); // 그 users 받아온거의 key값만
         const userInfo = userKeys.reduce((newUser, info)=>{
-            newUser[info] = users[info][idk];
+            newUser[info] = users[info][idx];
             return newUser;
         }, {});
         return userInfo;
