@@ -16,9 +16,11 @@ function login(){
     fetch('/login', {
         method: "POST",
         headers: {
-            "Content-Tpe":"apolication/json",
+            "Content-Type":"application/json",
         },
         // 제이슨 형태로 해당 오브젝트 데이터를 문자열로 바꿔서 json올 바꾸겠다.
         body: JSON.stringify(req),
-    });
+    })
+    .then((res)=> res.json())
+    .then(console.log); //보낸 데이터 읽기
 }

@@ -6,9 +6,10 @@ const router = express.Router();
 // home.ctrl.js 받아오기
 const ctrl = require("./home.ctrl");
 
-router.get('/', ctrl.home);
-router.get('/login', ctrl.login);
-// router.post('/login', ctrl.login);
+router.get('/', ctrl.output.home);
+router.get('/login', ctrl.output.login);
+// 서버에서 로그인 데이터 받음
+router.post('/login', ctrl.process.login);
 
 // 외부에서 사용할 수 있도록 내보내기.
 module.exports = router;
