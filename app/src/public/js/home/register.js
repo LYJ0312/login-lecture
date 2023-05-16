@@ -1,19 +1,24 @@
 "use strict";
 
 const id = document.querySelector("#id"),
+name = document.querySelector("#name"),
 password = document.querySelector("#password"),
-loginBtn = document.querySelector("#button");
+confirmPassword = document.querySelector("#confirm-password"),
+registerBtn = document.querySelector("#button");
 
-loginBtn.addEventListener("click", login);
 
-function login(){
+registerBtn.addEventListener("click", register);
+
+function register(){
     const req = {
         id: id.value,
+        name: name.value,
         password: password.value,
+        confirmPassword: confirmPassword.value,
     };
 
-    // 데이터 전달, 로그인 경로로
-    fetch('/login', {
+    // 데이터 전달, 회원가입 경로로
+    fetch('/register', {
         method: "POST",
         headers: {
             "Content-Type":"application/json",
@@ -24,12 +29,12 @@ function login(){
     .then((res)=> res.json())
     .then((res)=>{
         if(res.success){
-            location.href = "/"; // 로그인 성공시 이동할 경로
+            location.href = "/login"; // 회원가입 성공시 이동할 경로
         } else{
-            alert(res.msg) // 로그인 실패시 ctrl에 있는 실패 메시지 가져옴
+            alert(res.msg) // 회원가입 실패시 ctrl에 있는 실패 메시지 가져옴
         }
     })
     .catch((err) => { // 에러 발생시 콘솔에 찍음
-        console.error(new Error("로그인 중 에러 발생"));
+        console.error(new Error("회원가입 중 에러 발생"));
     });
 }
