@@ -23,7 +23,8 @@ class User {
     // 데이터 저장해서 storage에 보내줌
     register(){
         const client = this.body
-        UserStorage.save(client)
+        const response = UserStorage.save(client)
+        return response;
     }
 }
 
