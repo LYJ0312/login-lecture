@@ -23,10 +23,15 @@ class User {
     }
 
     // 데이터 저장해서 storage에 보내줌
-    register(){
+    async register(){
         const client = this.body
-        const response = UserStorage.save(client)
-        return response;
+        try{
+            // 데이터 저장이 오래 걸리니까 await 걸어주기
+            const response = await UserStorage.save(client);
+            return response;
+        } catch(err){ // error가 잡히면 여기서 출력해줌
+            return {success: false, msg: err};
+        }
     }
 }
 

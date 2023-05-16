@@ -29,9 +29,10 @@ const process = {
         return res.json(response);
     },
 
-    register: (req, res) =>{
+    // Users.js에서 data저장 오래걸려서 await 걸어줬으니까 같이 바꿔주기
+    register: async (req, res) =>{
         const user = new User(req.body);
-        const response = user.register();
+        const response = await user.register();
         return res.json(response);
     },
 };
