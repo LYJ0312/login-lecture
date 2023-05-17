@@ -15,6 +15,18 @@ const output = {
     },
 };
 
+const pages = {
+    weather: (req, res)=>{
+        res.render('./home/weather');
+    },
+    how: (req, res)=>{
+        res.render('./home/how');
+    },
+    about: (req, res)=>{
+        res.render('./home/about');
+    },
+}
+
 
 // body보려면 app.js에서 모듈 설치해야 함
 // 들어온 데이터가 저장되어 있는것과 일치한지 아닌지 확인
@@ -42,5 +54,6 @@ const process = {
 // 아래는 key만 넣어줬으므로 자동으로 hello:hello로 넘겨주는거임
 module.exports = {
     output,
+    pages,
     process,
 };

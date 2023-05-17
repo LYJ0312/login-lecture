@@ -21,5 +21,8 @@
   "repository": {
     "type": "git",
     "url": ""
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.22"
   }
 }
