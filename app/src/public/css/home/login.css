@@ -4,7 +4,7 @@
 
 .login-page {
     width: 360px;
-    padding: 8% 0 0;
+    padding: 20% 0 0;
     margin: auto;
 }
 .form {
@@ -92,9 +92,9 @@
     color: #EF3B3A;
 }
 body {
-    background: #76b852; /* fallback for old browsers */
-    background: rgb(141,194,111);
-    background: linear-gradient(90deg, rgba(141,194,111,1) 0%, rgba(118,184,82,1) 50%);
+    background: #5282b8; /* fallback for old browsers */
+    background: rgb(111, 147, 194);
+    background: linear-gradient(90deg, rgb(69, 198, 238) 0%, rgb(122, 204, 193) 50%);
     font-family: "Roboto", sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;      
