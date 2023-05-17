@@ -10,7 +10,6 @@ const express = require('express');
 // 바디부분 내용을 보기위해 필요
 // const bodyParser = require("body-parser");
 const app = express();
-const PORT = 3000;
 // 라우팅
 const home = require("./src/routes/home");
 

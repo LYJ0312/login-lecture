@@ -9,7 +9,7 @@
 // package.json에서 node start: ./bin/www.js 인걸 nodemon으로 변경하여 nodemon start만 해도 됨
 const app = require("../app");
 
-const PORT = 3000;
+const PORT = 8001;
 
 app.listen(PORT, ()=>{
     console.log(`서버 가동 http://localhost:${PORT}`);

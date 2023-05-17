@@ -7,7 +7,7 @@ class UserStorage{
     // 은닉화 한 애들은 클래스 상단에 넣어줘야 깔끔
     // 위 getIserInfo 함수 안에 들어가도 되는 내용들이지만
     // 가독성을 위해서 #getUserInfo를 만들어서 안에 넣어줌
-    static #getUserInfo(){            
+    static #getUserInfo(data, id){            
         const users = JSON.parse(data);
         const idx = users.id.indexOf(id); // 위에 저장한 users
         const userKeys = Object.keys(users); // 그 users 받아온거의 key값만
@@ -35,20 +35,43 @@ class UserStorage{
     // 데이터 은닉화 했으니까, 불러오기 위해 get설정
     // 변수 몇 개를 요구할지 모르니 ...변수명 으로 설정
     static getUsers(isAll, ...fields){
-        return fs.readFile("./src/database/users.json")
-        .then((data) =>{ // 위 로직 성공시 실행 
-            return this.#getUsers(data, isAll, fields); //은닉화 된 메서드 호출
-        })
-        .catch(console.error); // 위 로직 실패시 실행
+        return new Promise((resolve, reject) =>{
+            fs.readFile("./src/database/users.json", (err, data) =>{
+                if(err){
+                    reject(err);
+                    return;
+                }
+                resolve(this.#getUsers(data, isAll, fields));
+            });
+        });
 
-
+                // return fs
+        // .readFile("./src/database/users.json")
+        // .then((data) =>{ // 위 로직 성공시 실행 
+        //     return this.#getUsers(data, isAll, fields); //은닉화 된 메서드 호출
+        // })
+        // .catch(console.error); // 위 로직 실패시 실행
     }
+
+
     static getUserInfo(id){
-        return fs.readFile("./src/database/users.json")
-        .then((data) =>{ // 위 로직 성공시 실행 
-            return this.#getUserInfo(data, id); //은닉화 된 메서드 호출
-        })
-        .catch(console.error); // 위 로직 실패시 실행
+
+        return new Promise((resolve, reject) =>{
+            fs.readFile("./src/database/users.json", (err, data) =>{
+                if(err){
+                    reject(err);
+                    return;
+                }
+                resolve(this.#getUserInfo(data, id));
+            });
+        });
+
+        // return fs
+        // .readFile("./src/database/users.json")
+        // .then((data) =>{ // 위 로직 성공시 실행 
+        //     return this.#getUserInfo(data, id); //은닉화 된 메서드 호출
+        // })
+        // .catch(console.error); // 위 로직 실패시 실행
     }
 
     static async save(userInfo){
@@ -64,7 +87,11 @@ class UserStorage{
         users.password.push(userInfo.password);
 
         // 데이터 추가, 오류난거 아니면 반환을 안함
-        fs.writeFile("./src/database/users.json", JSON.stringify(users));
+        fs.writeFile("./src/database/users.json", JSON.stringify(users), (err) =>{
+            if(err){
+                throw err;
+            }
+        });
         // 따로 반환 내용
         return {success: true};
     }

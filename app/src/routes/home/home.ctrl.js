@@ -4,28 +4,26 @@ const User = require("../../models/User");
 
 const output = {
     home: (req, res)=>{
-        res.render('./home/index');
+        res.render('home/index');
     },
     
     login: (req, res)=>{
-        res.render('./home/login');
+        res.render('home/login');
     },
     register: (req, res)=>{
-        res.render('./home/register');
+        res.render('home/register');
     },
-};
-
-const pages = {
     weather: (req, res)=>{
-        res.render('./home/weather');
+        res.render('home/weather');
     },
     how: (req, res)=>{
-        res.render('./home/how');
+        res.render('home/how');
     },
     about: (req, res)=>{
-        res.render('./home/about');
+        res.render('home/about');
     },
 }
+
 
 
 // body보려면 app.js에서 모듈 설치해야 함
@@ -37,7 +35,6 @@ const process = {
         // Users.js에서 login 함수를 await걸어서 여기도 걸어줘야 함
         // 데이터 다 읽히고 작동하는 듯
         const response = await user.login();
-
         return res.json(response);
     },
 
@@ -54,6 +51,5 @@ const process = {
 // 아래는 key만 넣어줬으므로 자동으로 hello:hello로 넘겨주는거임
 module.exports = {
     output,
-    pages,
     process,
 };
