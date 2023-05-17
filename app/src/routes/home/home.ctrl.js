@@ -22,6 +22,11 @@ const output = {
     about: (req, res)=>{
         res.render('home/about');
     },
+
+    logout: (req, res) => {
+        req.session.destroy(); // 세션 제거
+        res.redirect('/'); // 로그인 페이지로 리다이렉트
+    },
 }
 
 
@@ -35,6 +40,10 @@ const process = {
         // Users.js에서 login 함수를 await걸어서 여기도 걸어줘야 함
         // 데이터 다 읽히고 작동하는 듯
         const response = await user.login();
+
+        if(response.success){
+            req.session.enter = 1; // 로그인 성공시 enter 변수 1로 설정
+        }
         return res.json(response);
     },
 
@@ -44,6 +53,22 @@ const process = {
         const response = await user.register();
         return res.json(response);
     },
+
+
+    logout: async(req, res) => {
+        req.session.enter = 0; // 로그아웃시 enter변수 0으로
+        req.session.destroy((err) => {
+            if (err) {
+                console.error(err);
+                res.json({ success: false, msg: "로그아웃 중 에러 발생" });
+            } else {
+                if (!res.headersSent) {
+                    res.redirect('/');
+                }
+            }
+        });
+    },
+
 };
 
 

@@ -33,3 +33,22 @@ function login(){
         console.error(new Error("로그인 중 에러 발생"));
     });
 }
+
+// 로그아웃
+// 로그아웃 버튼 클릭 시 호출되는 함수
+function logout() {
+    fetch('/logout', {
+        method: "GET",
+    })
+    .then((res) => res.json())
+    .then((res) => {
+        if (res.success) {
+            location.href = "/"; // 로그아웃 성공시 이동할 경로
+        } else {
+            alert(res.msg);
+        }
+    })
+    .catch((err) => {
+        console.error(new Error("로그아웃 중 에러 발생"));
+    });
+}

@@ -4,12 +4,14 @@
 // npm install ejs -s
 // npm init >> 초기화 하다
 // npm i body-parser -s
+// npm install express-session
 
 // 모듈
 const express = require('express');
 // 바디부분 내용을 보기위해 필요
 // const bodyParser = require("body-parser");
 const app = express();
+const session = require('express-session');
 // 라우팅
 const home = require("./src/routes/home");
 
@@ -24,6 +26,18 @@ app.use(express.urlencoded({extended:true}));
 
 // router 받아오기
 // 현재 폴더 > 라우트 > home > 자바스크립트 
+
+app.use(session({
+    secret: 'your-secret-key',
+    resave: false,
+    saveUninitialized: true,
+}));
+
+app.use((req, res, next) => {
+    res.locals.enter = req.session.enter || 0;
+    next();
+});
+
 
 app.use("/", home); // use -> 미들 웨어를 등록해주는 메소드
 
