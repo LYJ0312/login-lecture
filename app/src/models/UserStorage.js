@@ -95,6 +95,13 @@ class UserStorage{
         // 따로 반환 내용
         return {success: true};
     }
+
+    static async logout() {
+        // 로그아웃 기능을 구현하려면 여기에 로그아웃 처리 코드를 작성합니다.
+        // 예를 들어, 현재 로그인된 사용자 정보를 초기화하거나 세션을 만료시키는 등의 작업을 수행합니다.
+        // 이 예시에서는 단순히 로그아웃 성공 메시지를 반환합니다.
+        return { success: true, message: "로그아웃되었습니다." };
+    }
 }
 // 데이터 추가시 users.json파일이 한 줄로 바뀜
 // 세로줄로 바꾸기 위해 JSON Pretty Printer 설치,
