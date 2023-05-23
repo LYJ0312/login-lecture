@@ -1,0 +1,28 @@
+    #disresult{
+        display: none;
+        background-color:  rgb(124, 175, 204);
+        width: 80%;
+        text-align: center;
+        border-radius: 20px;
+    }
+    
+    .resultname{
+        font-size: 26px;
+    }
+    
+    .resultDesc{
+        font-size: 20px;
+    }
+    
+    .gotohomefs{
+        color: white;
+        background-color: #353ca0;
+        font-size: 20px;
+        border: 0px;
+        border-radius: 20px;
+    }
+    
+    .gotohomefs:hover, .gotohomefs:focus {
+        background-color: whitesmoke;
+        color: #37399e;
+    }

@@ -142,7 +142,7 @@ a:focus {
 }
 
 .custom_nav-container .nav_search-btn {
-    background-image: url(../images/search-icon.png);
+    background-image: url(../../images/search-icon.png);
     background-size: 22px;
     background-repeat: no-repeat;
     background-position-y: 7px;
@@ -190,7 +190,7 @@ a:focus {
 }
 
 .custom_nav-container .navbar-toggler .navbar-toggler-icon {
-    background-image: url(../images/menu.png);
+    background-image: url(../../images/menu.png);
     background-size: 55px;
 }
 

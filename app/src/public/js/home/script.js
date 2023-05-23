@@ -3,34 +3,36 @@
         fetchWeather : function (city) {
         fetch("https://api.openweathermap.org/data/2.5/forecast?q=" + city + "&usits=metric&appid=" + this.apiKey)
         .then((response) => response.json())
-        .then((data) => this.displayWeather(data));
+        .then((data) => {
+            this.displayWeather(data);
+            weadet = [data.list[0].weather[0].description, data.list[0].main.temp-273.15];
+            Cloth_change();
+        });
         }, //api에서 정보를 가져온 후 사용 할 수 있게 data로 넘김
         displayWeather : function (data) {
         const name = data.city.name;
-        const { icon, description } = data.list[0].weather[0];
-        const { temp, humidity } = data.list[0].main;
-        const { speed } = data.list[0].wind;
-        const dt_txt = data.list[0].dt_txt;
+        const { icon, description } = data.list[7].weather[0];
+        const { temp, humidity } = data.list[7].main;
+        const { speed } = data.list[7].wind;
+        //다음날 6시
     
-        const { icon: icon1, description: description1 } = data.list[5].weather[0];
-        const { temp: temp1, humidity: humidity1 } = data.list[5].main;
-        const { speed: speed1 } = data.list[5].wind;
-        const dt_txt1 = data.list[5].dt_txt
+        const { icon: icon1, description: description1 } = data.list[9].weather[0];
+        const { temp: temp1, humidity: humidity1 } = data.list[9].main;
+        const { speed: speed1 } = data.list[9].wind;
+    //다음날 정오
     
-        const { icon: icon2, description: description2 } = data.list[10].weather[0];
-        const { temp: temp2, humidity: humidity2 } = data.list[10].main;
-        const { speed: speed2 } = data.list[10].wind;
-        const dt_txt2 = data.list[10].dt_txt
-    
+        const { icon: icon2, description: description2 } = data.list[12].weather[0];
+        const { temp: temp2, humidity: humidity2 } = data.list[12].main;
+        const { speed: speed2 } = data.list[12].wind;
+    //다음날 9시
     
     
         console.log(name,description,icon,temp,humidity,speed);
         document.querySelector(".city").innerText = "Weather in " + name;
         document.querySelector(".description").innerText = description;
         document.querySelector(".temp").innerText = Math.round(temp - 273) + "℃";
-        document.querySelector(".humidity").innerText = "Humidity: " + humidity + "%";
-        document.querySelector(".wind").innerText = "Wind speed: " + speed + "km/h";
-        document.querySelector(".dt_txt").innerText = "day: " + dt_txt;
+        document.querySelector(".humidity").innerText = "습도: " + humidity + "%";
+        document.querySelector(".wind").innerText = "풍속: " + speed + "km/h";
         const weatherIconImg = document.querySelector('.icon');
         if (weatherIconImg) {
             const weatherIconAdrs = `http://openweathermap.org/img/wn/${icon}@2x.png`;
@@ -42,9 +44,8 @@
         console.log(name,description1,icon1,temp1,humidity1,speed1);
         document.querySelector(".description1").innerText = description1;
         document.querySelector(".temp1").innerText = Math.round(temp1 - 273) + "℃";
-        document.querySelector(".humidity1").innerText = "Humidity: " + humidity1 + "%";
-        document.querySelector(".wind1").innerText = "Wind speed: " + speed1 + "km/h";
-        document.querySelector(".dt_txt1").innerText = "day: " + dt_txt1;
+        document.querySelector(".humidity1").innerText = "습도: " + humidity1 + "%";
+        document.querySelector(".wind1").innerText = "풍속: " + speed1 + "km/h";
         const weatherIconImg1 = document.querySelector('.icon1');
         if (weatherIconImg1) {
             const weatherIconAdrs1 = `http://openweathermap.org/img/wn/${icon1}@2x.png`;
@@ -56,9 +57,8 @@
         console.log(name,description2,icon2,temp2,humidity2,speed2);
         document.querySelector(".description2").innerText = description2;
         document.querySelector(".temp2").innerText = Math.round(temp2 - 273) + "℃";
-        document.querySelector(".humidity2").innerText = "Humidity: " + humidity2 + "%";
-        document.querySelector(".wind2").innerText = "Wind speed: " + speed2 + "km/h";
-        document.querySelector(".dt_txt2").innerText = "day: " + dt_txt2;
+        document.querySelector(".humidity2").innerText = "습도: " + humidity2 + "%";
+        document.querySelector(".wind2").innerText = "풍속: " + speed2 + "km/h";
         const weatherIconImg2 = document.querySelector('.icon2');
         if (weatherIconImg1) {
             const weatherIconAdrs2 = `http://openweathermap.org/img/wn/${icon2}@2x.png`;
