@@ -27,6 +27,10 @@ const output = {
         req.session.destroy(); // 세션 제거
         res.redirect('/'); // 로그인 페이지로 리다이렉트
     },
+
+    fashion-test: (req, res)=>{
+        res.render('home/discoverfs');
+    }
 }
 
 
