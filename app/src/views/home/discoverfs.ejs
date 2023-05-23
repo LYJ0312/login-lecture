@@ -5,6 +5,23 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
         <title>자신에게 맞는 패션을 알아보자</title>
+
+        <!-- 상단바 -->
+        <!-- slider stylesheet -->
+        <!-- slider stylesheet -->
+        <link rel="stylesheet" type="text/css"
+        href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+
+        <!-- bootstrap core css -->
+        <link rel="stylesheet" type="text/css" href="./css_cryptop/home/bootstrap.css" />
+
+        <!-- fonts style -->
+        <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet" />
+        <!-- Custom styles for this template -->
+        <link href="./css_cryptop/home/style.css" rel="stylesheet" />
+        <!-- responsive style -->
+        <link href="./css_cryptop/home/responsive.css" rel="stylesheet" />
+
         <!-- 구글 폰트를 통하여 나눔 폰트를 적용-->
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -25,6 +42,57 @@
 
 
     <body>
+
+    <!-- 상단바 -->
+    <!-- header section strats -->
+    <header class="header_section">
+        <div class="container-fluid">
+            <nav class="navbar navbar-expand-lg custom_nav-container ">
+            <a class="navbar-brand" href="/">
+                <span>
+                Weather App
+                </span>
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <div class="d-flex ml-auto flex-column flex-lg-row align-items-center">
+                <ul class="navbar-nav  ">
+                    <li class="nav-item ">
+                    <a class="nav-link" href="/">Home</a>
+                    </li>
+                    <li class="nav-item active">
+                    <a class="nav-link" href="/about"> About </a>
+                    </li>
+                    <li class="nav-item">
+                    <a class="nav-link" href="/how"> How </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/weather"> Weather_Fashion </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/fashiontest"> Fashion style test <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                    <a class="nav-link" href="/logout"> Logout </a>
+                    </li>
+
+                </ul>
+                <div class="user_option">
+                    <form class="form-inline my-2 my-lg-0 ml-0 ml-lg-4 mb-3 mb-lg-0">
+                    <button class="btn  my-2 my-sm-0 nav_search-btn" type="submit"></button>
+                    </form>
+                </div>
+                </div>
+            </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- 내용 -->
     <div class="container">
         <section id="dismain" class="mx-auto my-5 py-5 px-3">
         <h1 style="font-size: 60px; font-weight: 300;">자신에게 어울리는 패션 유형을 알아보자</h1>
