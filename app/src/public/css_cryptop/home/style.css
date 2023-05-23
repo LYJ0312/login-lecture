@@ -358,7 +358,7 @@ a:focus {
 }
 
 .how_section .how_container .box:hover .detail-box p {
-    color: #393a3c;
+    color: #08090a;
 }
 
 .how_section .btn-box {
@@ -373,8 +373,8 @@ a:focus {
 .how_section .btn-box a {
     display: inline-block;
     padding: 10px 45px;
-    background-color: #0a488f;
-    border: 1px solid #0a488f;
+    background-color: #3f75aa;
+    border: 1px solid #3f75aa;
     color: #ffffff;
     border-radius: 5px;
     -webkit-transition: -webkit-transform 0.3s;
@@ -386,8 +386,8 @@ a:focus {
 .how_section .btn-box a:hover {
     -webkit-transform: translateY(-3px);
             transform: translateY(-3px);
-    -webkit-box-shadow: 0px 3px 4px 0 rgba(0, 0, 0, 0.2);
-            box-shadow: 0px 3px 4px 0 rgba(0, 0, 0, 0.2);
+    -webkit-box-shadow: 0px 3px 4px 0 #224568;
+            box-shadow: 0px 3px 4px 0 #1e3e5e;
 }
 
 .about_section {
@@ -435,8 +435,8 @@ a:focus {
 .about_section .btn-box a {
     display: inline-block;
     padding: 10px 45px;
-    background-color: #171717;
-    border: 1px solid #171717;
+    background-color: #3f75aa;
+    border: 1px solid #3f75aa;
     color: #ffffff;
     border-radius: 5px;
     -webkit-transition: -webkit-transform 0.3s;
@@ -560,8 +560,8 @@ section.app_section .img-box img {
 .auto_section .btn-box a {
     display: inline-block;
     padding: 10px 45px;
-    background-color: #171717;
-    border: 1px solid #171717;
+    background-color: #3f75aa;
+    border: 1px solid #3f75aa;
     color: #ffffff;
     border-radius: 5px;
     -webkit-transition: -webkit-transform 0.3s;
@@ -665,8 +665,8 @@ section.app_section .img-box img {
 .client_section .btn-box a {
     display: inline-block;
     padding: 10px 45px;
-    background-color: #171717;
-    border: 1px solid #171717;
+    background-color: #3f75aa;
+    border: 1px solid #3f75aa;
     color: #ffffff;
     border-radius: 5px;
     -webkit-transition: -webkit-transform 0.3s;
