@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "app.js",
   "bin": {
-    "login-test": "bin/www.js"
+    "login-test": "./bin/www.js"
   },
   "dependencies": {
     "body-parser": "^1.20.2",
@@ -12,7 +12,7 @@
     "express-session": "^1.17.3"
   },
   "scripts": {
-    "start": "nodemon ./bin/www.js",
+    "start": "nodemon bin/www.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
