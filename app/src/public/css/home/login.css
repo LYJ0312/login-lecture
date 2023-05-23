@@ -94,7 +94,7 @@
 body {
     background: #5282b8; /* fallback for old browsers */
     background: rgb(111, 147, 194);
-    background: linear-gradient(90deg, rgb(69, 198, 238) 0%, rgb(122, 204, 193) 50%);
+    background: linear-gradient(90deg, rgb(69, 198, 238) 0%, rgb(70, 224, 230) 70%);
     font-family: "Roboto", sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;      
