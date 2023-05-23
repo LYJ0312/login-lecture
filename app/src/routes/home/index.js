@@ -14,6 +14,7 @@ router.get('/register', ctrl.output.register);
 router.get('/weather', ctrl.output.weather);
 router.get('/how', ctrl.output.how);
 router.get('/about', ctrl.output.about);
+router.get('/fashiontest', ctrl.output.fashiontest)
 
 // 서버에서 로그인 데이터 받음
 router.post('/login', ctrl.process.login);
