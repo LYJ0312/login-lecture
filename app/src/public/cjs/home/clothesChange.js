@@ -8,10 +8,10 @@ function Cloth_change() {
         for (let ic = 0; ic < 3; ic++) {
             const clothes = set_reg === 'M' ? Cloths_M(day_temp[ic]) : Cloths_W(day_temp[ic]);
 
-            document.getElementById(`chara-img${[ic]}`).src = (set_reg === 'M') ? 'cImg/Human_M.png' : 'cImg/Human_W.png';
-            document.getElementById(`chara-clo${[ic]}`).src = `cImg/${clothes[0]}.png`;
-            document.getElementById(`chara-pan${[ic]}`).src = `cImg/${clothes[1]}.png`;
-            document.getElementById(`chara-umb${[ic]}`).src = bw[ic] ? 'cImg/umbrella.png' : 'cImg/Clean.png';
+            document.getElementById(`chara-img${[ic]}`).src = (set_reg === 'M') ? '../../cImg/Human_M.png' : 'cImg/Human_W.png';
+            document.getElementById(`chara-clo${[ic]}`).src = `../../cImg/${clothes[0]}.png`;
+            document.getElementById(`chara-pan${[ic]}`).src = `../../cImg/${clothes[1]}.png`;
+            document.getElementById(`chara-umb${[ic]}`).src = bw[ic] ? '../../cImg/umbrella.png' : '../../cImg/Clean.png';
         }
     }
 }
