@@ -204,9 +204,11 @@
     </div>
     </div>
     <div class="btn-box">
-    <a href="/weather">
-        시작하기
-    </a>
+    <% if (enter === 1) { %>
+    <a href="/weather">시작하기</a>
+    <% } else{ %>
+        <a href="/login">시작하기</a>
+    <% } %>
     </div>
 </section>
 <!-- end how section -->
