@@ -12,7 +12,17 @@ registerBtn.addEventListener("click", register);
 function register(){
 
     if(!id.value) return alert("아이디를 입력해주십시오.");
+    if(!password.value) return alert("비밀번호를 입력해주십시오.");
+    if(!name.value) return alert("이름을 입력해주십시오.");
     if(password.value !== confirmPassword.value) return alert("비밀번호가 맞지 않습니다.");
+
+    if(!id.value || !password.value || !name.value || password.value){
+        if(!id.value) return alert("아이디를 입력해주십시오.");
+        if(!name.value) return alert("이름을 입력해주십시오.");
+        if(!password.value) return alert("비밀번호를 입력해주십시오.");
+        if(!confirmPassword.value) return alert("비밀번호 확인을 입력해주십시오.");
+        if(password.value !== confirmPassword.value) return alert("비밀번호가 맞지 않습니다.");
+    }
 
     const req = {
         id: id.value,

@@ -34,6 +34,14 @@ function login(){
     });
 }
 
+// enterkey envent
+function Enterkey(){
+    if(window.event.keyCode == 13){ // 엔터 키 번호가 13번
+        // enter key event 내용
+        login()
+    } 
+}
+
 // 로그아웃
 // 로그아웃 버튼 클릭 시 호출되는 함수
 function logout() {
@@ -51,12 +59,4 @@ function logout() {
     .catch((err) => {
         console.error(new Error("로그아웃 중 에러 발생"));
     });
-}
-
-// enterkey envent
-function Enterkey(){
-    if(window.event.keyCode == 13){ // 엔터 키 번호가 13번
-        // enter key event 내용
-        login()
-    } 
 }
