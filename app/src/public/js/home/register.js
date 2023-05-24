@@ -41,3 +41,11 @@ function register(){
         console.error(new Error("회원가입 중 에러 발생"));
     });
 }
+
+// enterkey event
+function EnterkeyRe(){
+    if(window.event.keyCode == 13){ // 엔터 키 번호가 13번
+        // enter key event 내용
+        register()
+    } 
+}
